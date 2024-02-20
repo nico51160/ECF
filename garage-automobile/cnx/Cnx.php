@@ -8,10 +8,10 @@ class Cnx
         $pass = '';
 
         try {
-            $cnx = new PDO($dsn, $user, $pass);
+            $Cnx = new PDO($dsn, $user, $pass);
         } catch (PDOException $e) {
             echo 'une erreur est survenue !';
         }
-        return $cnx;
+        return $Cnx;
     }
 }

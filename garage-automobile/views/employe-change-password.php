@@ -8,12 +8,12 @@ if (isset($_POST['submit'])) {
     <div class="row mt-4">
         <div class="col-md-8 mx-auto">
             <div class="card">
-                <div class="card card-header bg-light">
+                <div class="card card-header bg-dark">
                     <h5><label>Changer le mot de passe</label></h5>
                     <?php echo isset($result) ?  $result : ''; ?>
                 </div>
-                <div class="card-body bg-light">
-                    <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-info mb-2"><i class="fa fa-home"></i></a>
+                <div class="card-body bg-dark">
+                    <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-light mb-2"><i class="fa fa-home"></i></a>
                     <form method="post">
                         <div class="form-group">
                             <label for="oldPassword">Ancien mot de passe
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
                             <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required>
                             <input type="hidden" name="id" value="<?php echo  $_SESSION['user']->id; ?>">
                         </div>
-                        <button type="submit" name="submit" class="btn btn-info">Changer le mot de passe</button>
+                        <button type="submit" name="submit" class="btn btn-light">Changer le mot de passe</button>
                     </form>
 
                 </div>
@@ -53,17 +53,4 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
-<script>
-    document.getElementById('showOldPassword').addEventListener('change', function() {
-        var passwordField = document.getElementById('oldPassword');
-        passwordField.type = this.checked ? 'text' : 'password';
-    });
-    document.getElementById('showNewPassword').addEventListener('change', function() {
-        var passwordField = document.getElementById('newPassword');
-        passwordField.type = this.checked ? 'text' : 'password';
-    });
-    document.getElementById('showConfirmPassword').addEventListener('change', function() {
-        var passwordField = document.getElementById('confirmPassword');
-        passwordField.type = this.checked ? 'text' : 'password';
-    });
-</script>
+<script src="/garage-automobile/public/js/password-view.js"></script>

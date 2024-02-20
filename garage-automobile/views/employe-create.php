@@ -8,36 +8,48 @@ if (isset($_POST['submit'])) {
     <div class="row mt-4">
         <div class="col-md-8 mx-auto">
             <div class="card">
-                <div class="card card-header bg-light"><h5><label>Ajouter un utilisateur</label></h5></div>
-                <div class="card-body bg-light">
-                    <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-info mb-2"><i class="fa fa-home"></i></a>
-                    <form method="post">
+                <div class="card card-header bg-dark"><h5><label>Ajouter un utilisateur</label></h5></div>
+                <div class="card-body bg-dark" id="box">
+                    <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-light mb-2"><i class="fa fa-home"></i></a>
+                    <form method="post" onsubmit="return validateForm();">
                         <div class="form-group">
                             <label class="control-label" for="nom">Nom*</label>
-                            <input type="text" class="form-control" name="nom">
+                            <input type="text" class="form-control deblock" name="nom">
+                            <span id="controleNom"></span>
+                            <strong id="explicationNom"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="prenom">Prénom*</label>
-                            <input type="text" class="form-control" name="prenom">
+                            <input type="text" class="form-control deblock" name="prenom">
+                            <span id="controlePrenom"></span>
+                            <strong id="explicationPrenom"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email">Email*</label>
-                            <input type="text" class="form-control" name="email">
+                            <input type="text" class="form-control deblock" name="email">
+                            <span id="controleEmail"></span>
+                            <strong id="explicationEmail"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="telephone">Telephone*</label>
-                            <input type="text" class="form-control" name="telephone">
+                            <input type="text" class="form-control deblock" name="telephone">
+                            <span id="controleTelephone"></span>
+                            <strong id="explicationTelephone"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="login">Login*</label>
-                            <input type="text" class="form-control" name="login">
+                            <input type="text" class="form-control deblock" name="login">
+                            <span id="controleLogin"></span>
+                            <strong id="explicationLogin"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="password">Password*</label>
-                            <input type="password" class="form-control" name="password">
+                            <input type="password" class="form-control deblock" name="password">
+                            <span id="controlePass"></span>
+                            <strong id="explicationPass"></strong>
                         </div>
                         <div class="form-group">
-                            <button type="submit" name="submit" class="btn btn-info">Valider</button>
+                            <button type="submit" name="submit" disabled class="btn btn-light">Valider</button>
                         </div>
                     </form>
                 </div>
@@ -45,3 +57,4 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
+<script src="/garage-automobile/public/js/employe-create-validate.js"></script>

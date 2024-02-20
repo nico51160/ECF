@@ -2,31 +2,51 @@
 class UserController
 {
 
-    public function login()
+    public function createUser()
     {
         if (isset($_POST['submit'])) {
-            $data['login'] = $_POST['login'];
-            $user = User::login($data);
-            if ($user->login == $_POST['login'] && $user->password == MD5($_POST['password'])) {
-                $_SESSION['logged'] = true;
-                $_SESSION['user'] = $user;
-                header('location: gestion-voitures');
+            $data = array(
+                'nom'       => $_POST['nom'],
+                'prenom'    => $_POST['prenom'],
+                'email'     => $_POST['email'],
+                'role'      => 'Employe',
+                'login'     => $_POST['login'],
+                'password'  => MD5($_POST['password']),
+                'telephone' => $_POST['telephone'],
+            );
+            $result = User::create($data);
+            if ($result === 'ok') {
+                header('location: gestion-employes');
             } else {
-                return '<div class="alert alert-danger"> Login ou mot de passe est incorrect ! </div>';
-                header('location: employe-login');
+                echo $result;
             }
         }
+    }
+
+    public function readUser()
+    {
+        if (isset($_POST['id'])) {
+            $data = array('id' => $_POST['id']);
+            $User = User::read($data);
+            return $User;
+        }
+    }
+
+    public function readAllUsers()
+    {
+        $Users = User::readAll();
+        return $Users;
     }
 
     public function updateUser()
     {
         if (isset($_POST['submit'])) {
             $data = array(
-                'id' => $_POST['id'],
-                'nom' => $_POST['nom'],
-                'prenom' => $_POST['prenom'],
-                'email' => $_POST['email'],
-                'login' => $_POST['login'],
+                'id'        => $_POST['id'],
+                'nom'       => $_POST['nom'],
+                'prenom'    => $_POST['prenom'],
+                'email'     => $_POST['email'],
+                'login'     => $_POST['login'],
                 'telephone' => $_POST['telephone'],
             );
             $result = User::update($data);
@@ -35,6 +55,43 @@ class UserController
             }
         }
     }
+
+    public function deleteUser($id)
+    {
+        if (isset($id)) {
+            $result = User::delete($id);
+            if ($result === 'ok') {
+                header('location: gestion-employes');
+            }
+        }
+    }
+
+    public function getAdminPhone()
+    {
+        $phone = User::getPhone();
+        return $phone;
+    }
+
+    public function login()
+    {
+        if (isset($_POST['submit'])) {
+                $user = User::login($_POST['login']);
+                if ($user->login == $_POST['login'] && $user->password == MD5($_POST['password'])) {
+                    $_SESSION['logged'] = true;
+                    $_SESSION['user']   = $user;
+                    header('location: gestion-voitures');
+                } else {
+                    return '<div class="alert alert-danger">Login ou mot de passe est incorrect !</div>';
+                    header('location: employe-login');
+                }
+        }
+    }
+
+    static public function logout()
+    {
+        session_destroy();
+    }
+
 
     public function changePasswordUser()
     {
@@ -61,64 +118,5 @@ class UserController
         }
     }
 
-    static public function logout()
-    {
-        session_destroy();
-    }
 
-    public function createUser()
-    {
-        if (isset($_POST['submit'])) {
-            $data = array(
-                'nom' => $_POST['nom'],
-                'prenom' => $_POST['prenom'],
-                'email' => $_POST['email'],
-                'role' => 'Employe',
-                'login' => $_POST['login'],
-                'password' => MD5($_POST['password']),
-                'telephone' => $_POST['telephone'],
-            );
-            $result = User::create($data);
-            if ($result === 'ok') {
-                header('location: gestion-employes');
-            } else {
-                echo $result;
-            }
-        }
-    }
-    public function readUser()
-    {
-        if (isset($_POST['id'])) {
-            $data = array('id' => $_POST['id']);
-            $User = User::read($data);
-            return $User;
-        }
-    }
-    public function readAllUsers()
-    {
-        $Users = User::readAll();
-        return $Users;
-    }
-
-    public function deleteUser()
-    {
-        if (isset($_POST['id'])) {
-            $data = array('id' => $_POST['id']);
-            $result = User::delete($data);
-            if ($result === 'ok') {
-                header('location: gestion-employes');
-            } else {
-                echo $result;
-            }
-        }
-    }
-
-    public function findUsers()
-    {
-        if (isset($_POST['search'])) {
-            $data = array('search' => $_POST['search']);
-        }
-        $Users = User::find($data);
-        return $Users;
-    }
 }

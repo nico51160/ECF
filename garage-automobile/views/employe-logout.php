@@ -1,3 +1,3 @@
 <?php 
 UserController::logout();
-header('location: employe-login');
+header('location: visiteur-voitures');
