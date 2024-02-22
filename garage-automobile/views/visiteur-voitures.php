@@ -72,4 +72,4 @@ $voitures = $voiture->readVoituresByFilters();
         <?php }; ?>
     </div>
 </div>
-<script src="/garage-automobile/public/js/validate-filtres.js" defer></script>
+
