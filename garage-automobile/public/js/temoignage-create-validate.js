@@ -1,7 +1,7 @@
 const VALIDERSTRING = (valeur, name)=> {
     let explication = document.querySelector(`#explication${name}`);
     let controle    = document.querySelector(`#controle${name}`);
-    let regex = /[0-9._?!:;,]+/g;
+    let regex = /[0-9._?!:;,}><{]+/g;
     let verifString = regex.test(valeur.value);
     if(valeur.value.length < 3) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
@@ -24,7 +24,7 @@ const VALIDERSTRING = (valeur, name)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct";
+        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct (ne doit comporter que des lettres)";
         explication.classList.add('rouge');
         valeur.classList.remove('bordureVert');
         valeur.classList.add('bordureRouge');
@@ -35,7 +35,7 @@ const VALIDERSTRING = (valeur, name)=> {
 const VALIDETEXT = (valeur, name)=> {
     let explication = document.querySelector(`#explication${name}`);
     let controle    = document.querySelector(`#controle${name}`);
-    let regex = /[0-9._?!:;,]+/g;
+    let regex = /[0-9._?!:;,}><{]+/g;
     let verifString = regex.test(valeur.value);
     if(valeur.value.length < 10) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
@@ -58,7 +58,7 @@ const VALIDETEXT = (valeur, name)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct";
+        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct (ne doit comporter que des lettres)";
         explication.classList.add('rouge');
         valeur.classList.remove('bordureVert');
         valeur.classList.add('bordureRouge');
@@ -74,7 +74,7 @@ form.nom.addEventListener('change', function() {
     VALIDERSTRING(this, 'Nom');
 });
 form.commentaire.addEventListener('input', function() {
-    VALIDETEXT(this,'change');
+    VALIDETEXT(this,'Commentaire');
 });
 form.note.addEventListener('input', function() {
     VALIDERNOTE(this,'change');

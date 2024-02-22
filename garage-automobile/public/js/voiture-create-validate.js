@@ -1,7 +1,7 @@
 const VALIDERSTRING = (valeur, name)=> {
     let explication = document.querySelector(`#explication${name}`);
     let controle    = document.querySelector(`#controle${name}`);
-    let regex = /[0-9._?!:;,]+/g;
+    let regex = /[0-9._?!:;,}><{]+/g;
     let verifString = regex.test(valeur.value);
     if(valeur.value.length < 3) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
@@ -24,7 +24,7 @@ const VALIDERSTRING = (valeur, name)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct";
+        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct (ne doit comporter que des lettres)";
         explication.classList.add('rouge');
         valeur.classList.remove('bordureVert');
         valeur.classList.add('bordureRouge');
@@ -66,14 +66,14 @@ form.nom.addEventListener('change', function() {
     VALIDERSTRING(this, 'Nom');
 });
 form.caracteristiques.addEventListener('change', function() {
-    VALIDERTEXT(this,'Caracteristiques');
+    VALIDETEXT(this,'Caracteristiques');
 });
 form.moteur.addEventListener('change', function() {
     VALIDERSTRING(this, 'Moteur');
 });
 
 form.addEventListener('change', function() {
-    if(   VALIDERSTRING(form.nom, 'Nom') && VALIDERTEXT(form.caracteristiques, 'Caracteristiques') && VALIDERSTRING(form.moteur, 'Moteur') ) {
+    if(   VALIDERSTRING(form.nom, 'Nom') && VALIDETEXT(form.caracteristiques, 'Caracteristiques') && VALIDERSTRING(form.moteur, 'Moteur') ) {
         let bouton = document.querySelector('#box button');
         bouton.removeAttribute('disabled');
 

@@ -20,7 +20,7 @@ const VALIDERSTRING = (valeur, name)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct, seul des lettres sont atorisés";
+        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct (ne doit comporter que des lettres)";
         explication.classList.add('rouge');
         return false;
     }  

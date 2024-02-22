@@ -3,7 +3,7 @@
 const VALIDERSTRING = (valeur, name)=> {
     let explication = document.querySelector(`#explication${name}`);
     let controle    = document.querySelector(`#controle${name}`);
-    let regex = /[0-9._?!:;,]+/g;
+    let regex = /[0-9._?!:;,}><{]+/g;
     let verifString = regex.test(valeur.value);
     if(valeur.value.length < 3) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
@@ -22,7 +22,7 @@ const VALIDERSTRING = (valeur, name)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct";
+        explication.innerText = "Le " +name.toLowerCase()+ " n'est pas correct (ne doit comporter que des lettres)";
         explication.classList.add('rouge');
         return false;
     }  
@@ -56,7 +56,7 @@ const VALIDERPASS = (valeur)=> {
     let regexMaj    = /[A-Z]/;
     let regexMin    = /[a-z]/;
     let regexChi    = /\d/;
-    let regexSpc    = /[?!:;,.]/;
+    let regexSpc    = /[?!:;,.-_}><{]/;
     if(valeur.value.length < 7) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
@@ -89,7 +89,7 @@ const VALIDERPASS = (valeur)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins un caractère spécial";
+        explication.innerText = "Le pass doit contenir au moins un caractère spécial ( ?!:;,.-_}><{ )";
         explication.classList.add('rouge');
         return false;
     } else {
@@ -167,7 +167,7 @@ form.password.addEventListener('change', function() {
 
 form.addEventListener('change', function() {
     
-    if( VALIDERSTRING(form.nom, 'Nom') &&  VALIDERSTRING(form.prenom,'Prenom')  && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone ) ) {
+    if( VALIDERSTRING(form.nom, 'Nom') &&  VALIDERSTRING(form.prenom,'Prenom')  && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone) && VALIDERPASS(form.password) && VALIDERSTRING(form.login,'Login')) {
 
         let bouton = document.querySelector('#box button');
         bouton.removeAttribute('disabled');

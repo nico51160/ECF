@@ -14,37 +14,37 @@ if (isset($_POST['submit'])) {
                     <form method="post" onsubmit="return validateForm();">
                         <div class="form-group">
                             <label class="control-label" for="nom">Nom*</label>
-                            <input type="text" class="form-control deblock" name="nom">
+                            <input type="text" class="form-control" name="nom">
                             <span id="controleNom"></span>
                             <strong id="explicationNom"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="prenom">Prénom*</label>
-                            <input type="text" class="form-control deblock" name="prenom">
+                            <input type="text" class="form-control" name="prenom">
                             <span id="controlePrenom"></span>
                             <strong id="explicationPrenom"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email">Email*</label>
-                            <input type="text" class="form-control deblock" name="email">
+                            <input type="text" class="form-control" name="email">
                             <span id="controleEmail"></span>
                             <strong id="explicationEmail"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="telephone">Telephone*</label>
-                            <input type="text" class="form-control deblock" name="telephone">
+                            <input type="text" class="form-control" name="telephone">
                             <span id="controleTelephone"></span>
                             <strong id="explicationTelephone"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="login">Login*</label>
-                            <input type="text" class="form-control deblock" name="login">
+                            <input type="text" class="form-control" name="login">
                             <span id="controleLogin"></span>
                             <strong id="explicationLogin"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="password">Password*</label>
-                            <input type="password" class="form-control deblock" name="password">
+                            <input type="password" class="form-control" name="password">
                             <span id="controlePass"></span>
                             <strong id="explicationPass"></strong>
                         </div>
