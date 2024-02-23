@@ -15,6 +15,13 @@ const VALIDERPASS = (valeur)=> {
         explication.innerText = "Le pass doit contenir au moins 7 caractères";
         explication.classList.add('rouge');
         return false;
+    }else if(valeur.value.length > 20) {
+        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        controle.classList.remove('vert');
+        controle.classList.add('rouge');
+        explication.innerText = "Le pass ne peut avoir plus de 20 caractères";
+        explication.classList.add('rouge');
+        return false;
     } else if(!regexMaj.test(valeur.value)) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
@@ -52,7 +59,6 @@ const VALIDERPASS = (valeur)=> {
     }
 }
 
-
 const VALIDERPASSCONFIRME = (valeur)=> {
     let explication = document.querySelector('#explicationPassConfirme');
     let controle    = document.querySelector('#controlePassConfirme');
@@ -65,6 +71,13 @@ const VALIDERPASSCONFIRME = (valeur)=> {
         controle.classList.remove('vert');
         controle.classList.add('rouge');
         explication.innerText = "Le pass doit contenir au moins 7 caractères";
+        explication.classList.add('rouge');
+        return false;
+    }else if(valeur.value.length > 20) {
+        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        controle.classList.remove('vert');
+        controle.classList.add('rouge');
+        explication.innerText = "Le pass ne peut avoir plus de 20 caractères";
         explication.classList.add('rouge');
         return false;
     } else if(!regexMaj.test(valeur.value)) {
@@ -105,9 +118,6 @@ const VALIDERPASSCONFIRME = (valeur)=> {
 }
 /************* LISTE DES FONCTIONS **************/
 
-
-
-
 /************* CONTROLE DU FORMULAIRE **************/
 let form = document.querySelector('#box form');
 
@@ -115,23 +125,20 @@ let form = document.querySelector('#box form');
 form.newPassword.addEventListener('change', function() {
     VALIDERPASS(this);
 });
-
 // Contrôle du champ "password"
 form.confirmPassword.addEventListener('change', function() {
     VALIDERPASSCONFIRME(this);
 });
 
 /************* CONTROLE ET DEBLOCAGE DU FORMULAIRE **************/
-
-form.addEventListener('change', function() {
-    
+let bouton = document.querySelector('#box button');
+form.addEventListener('keyup', function() {   
     if( VALIDERPASS(form.newPassword) && VALIDERPASSCONFIRME(form.confirmPassword)) {
-
-        let bouton = document.querySelector('#box button');
         bouton.removeAttribute('disabled');
-
-    } else{
-
-    }
-       
+    }       
 });
+form.addEventListener('keyup', function() {
+    if( !( VALIDERPASS(form.newPassword)) || !(VALIDERPASSCONFIRME(form.confirmPassword)) ) {
+    bouton.setAttribute('disabled', "");
+} 
+}); 

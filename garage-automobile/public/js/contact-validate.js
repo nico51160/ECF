@@ -13,6 +13,13 @@ const VALIDERSTRING = (valeur, name)=> {
         explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir moins de 3 caractères";
         explication.classList.add('rouge');
         return false;
+    }else if(valeur.value.length > 50) {
+        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        controle.classList.remove('vert');
+        controle.classList.add('rouge');
+        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 50 caractères";
+        explication.classList.add('rouge');
+        return false;
     } else if(!verifString) {
         controle.innerHTML = '<i class="fas fa-check"></i>';
         controle.classList.remove('rouge');
@@ -40,6 +47,13 @@ const VALIDETEXT = (valeur, name)=> {
         controle.classList.remove('vert');
         controle.classList.add('rouge');
         explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir moins de 20 caractères";
+        explication.classList.add('rouge');
+        return false;
+    }else if(valeur.value.length > 300) {
+        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
+        controle.classList.remove('vert');
+        controle.classList.add('rouge');
+        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 300 caractères";
         explication.classList.add('rouge');
         return false;
     } else if(!verifString) { 
@@ -160,9 +174,6 @@ const VALIDERPORTABLE = (valeur)=> {
 }
 /************* LISTE DES FONCTIONS **************/
 
-
-
-
 /************* CONTROLE DU FORMULAIRE **************/
 let form = document.querySelector('#box form');
 
@@ -175,8 +186,8 @@ form.nom.addEventListener('change', function() {
     VALIDERSTRING(this, 'Nom');
 });
 // Contrôle du champ "Message"
-form.message.addEventListener('input', function() {
-    VALIDETEXT(this,'change');
+form.message.addEventListener('change', function() {
+    VALIDETEXT(this,'Message');
 });
 // Contrôle du champ "email" 
 form.email.addEventListener('change', function() {
@@ -187,19 +198,15 @@ form.telephone.addEventListener('change', function() {
     VALIDERPORTABLE(this);
 });
 
-
-
-
 /************* CONTROLE ET DEBLOCAGE DU FORMULAIRE **************/
-
-form.addEventListener('change', function() {
-    
+let bouton = document.querySelector('#box button');
+form.addEventListener('keyup', function() {    
     if( VALIDERSTRING(form.prenom,'Prenom') && VALIDERSTRING(form.nom, 'Nom') && VALIDETEXT(form.message, 'Message') && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone )) {
-
-        let bouton = document.querySelector('#box button');
         bouton.removeAttribute('disabled');
-
-    } 
-       
+    }        
 });
-
+form.addEventListener('keyup', function() {
+        if( !(VALIDERSTRING(form.prenom,'Prenom')) || !(VALIDERSTRING(form.nom, 'Nom')) || !(VALIDETEXT(form.message, 'Message')) || !(VALIDEREMAIL(form.email)) || !(VALIDERPORTABLE(form.telephone ))) {
+             bouton.setAttribute('disabled', "");
+        } 
+});

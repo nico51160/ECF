@@ -34,15 +34,21 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="annee">Annee de mise en circulation*</label>
-                            <input type="number" class="form-control" name="annee" min="1900" max="2023">
+                            <input type="number" class="form-control" name="annee">
+                            <span id="controleAnnee"></span>
+                            <strong id="explicationAnnee"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="kilometrage">Kilometrage*</label>
-                            <input type="number" class="form-control" name="kilometrage" min="10">
+                            <input type="number" class="form-control" name="kilometrage">
+                            <span id="controleKm"></span>
+                            <strong id="explicationKm"></strong>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="prix">Prix($)*</label>
-                            <input type="number" class="form-control" name="prix" min="0">
+                            <input type="number" class="form-control" name="prix">
+                            <span id="controlePrix"></span>
+                            <strong id="explicationPrix"></strong>
                         </div>
                         <label for="images">Images :</label>
                         <input type="file" name="images[]" id="images" required multiple accept="public/images/voitures/*" ><br>

@@ -56,64 +56,7 @@ const VALIDEREMAIL = (valeur)=> {
         return false;
     }
 }
-// Fonction validerPass
-const VALIDERPASS = (valeur)=> {
-    let explication = document.querySelector('#explicationPass');
-    let controle    = document.querySelector('#controlePass');
-    let regexMaj    = /[A-Z]/;
-    let regexMin    = /[a-z]/;
-    let regexChi    = /\d/;
-    let regexSpc    = /[?!:;,.-_}><{]/;
-    if(valeur.value.length < 7) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins 7 caractères";
-        explication.classList.add('rouge');
-        return false;
-    }else if(valeur.value.length > 20) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass ne peut avoir plus de 20 caractères";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexMaj.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins une lettre en majuscule";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexMin.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins une lettre en minuscule";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexChi.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins un chiffre";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexSpc.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins un caractère spécial ( ?!:;,.-_}><{ )";
-        explication.classList.add('rouge');
-        return false;
-    } else {
-        controle.innerHTML = '<i class="fas fa-check"></i>';
-        controle.classList.remove('rouge');
-        controle.classList.add('vert');
-        explication.innerText = "";
-        return true;
-    }
-}
+
 // Fonction validerPortable
 const VALIDERPORTABLE = (valeur)=> {
     let explication = document.querySelector('#explicationTelephone');
@@ -166,21 +109,21 @@ form.telephone.addEventListener('change', function() {
 form.login.addEventListener('change', function() {
     VALIDERSTRING(this,'Login');
 });
-// Contrôle du champ "password"
-form.password.addEventListener('change', function() {
-    VALIDERPASS(this);
-});
 
 /************* CONTROLE ET DEBLOCAGE DU FORMULAIRE **************/
 let bouton = document.querySelector('#box button');
-form.addEventListener('keyup', function() {
-    if( VALIDERSTRING(form.nom, 'Nom') &&  VALIDERSTRING(form.prenom, 'Prenom') && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone) && VALIDERPASS(form.password) && VALIDERSTRING(form.login,'Login')) {
+form.addEventListener('mousemove', function() {
+    if( VALIDERSTRING(form.nom, 'Nom') &&  VALIDERSTRING(form.prenom, 'Prenom') && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone) && VALIDERSTRING(form.login,'Login')) {
         bouton.removeAttribute('disabled');
     }
 });
 form.addEventListener('keyup', function() {
-        if( !(VALIDERSTRING(form.nom, 'Nom')) || !(VALIDERSTRING(form.prenom, 'Prenom')) || !(VALIDEREMAIL(form.email)) || !(VALIDERPORTABLE(form.telephone)) || !(VALIDERPASS(form.password)) || !(VALIDERSTRING(form.login,'Login'))) {
+    if( VALIDERSTRING(form.nom, 'Nom') &&  VALIDERSTRING(form.prenom, 'Prenom') && VALIDEREMAIL(form.email) && VALIDERPORTABLE(form.telephone) && VALIDERSTRING(form.login,'Login')) {
+        bouton.removeAttribute('disabled');
+    }
+});
+form.addEventListener('keyup', function() {
+        if( !(VALIDERSTRING(form.nom, 'Nom')) || !(VALIDERSTRING(form.prenom, 'Prenom')) || !(VALIDEREMAIL(form.email)) || !(VALIDERPORTABLE(form.telephone)) || !(VALIDERSTRING(form.login,'Login'))) {
         bouton.setAttribute('disabled', "");
     } 
 });  
-

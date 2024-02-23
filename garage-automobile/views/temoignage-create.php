@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="note">Note/10*</label>
-                            <input type="number" class="form-control" required min="0" max="10" name="note">
+                            <input type="number" class="form-control" name="note">
                             <span id="controleNote"></span>
                             <strong id="explicationNote"></strong>
                         </div>

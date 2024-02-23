@@ -78,6 +78,11 @@ form.description.addEventListener('change', function() {
 });
 
 let bouton = document.querySelector('#box button');
+form.addEventListener('mousemove', function() {
+    if(   VALIDERSTRING(form.nom, 'Nom') && VALIDETEXT(form.description, 'Description') ) {
+        bouton.removeAttribute('disabled');
+    } 
+});
 form.addEventListener('keyup', function() {
     if(   VALIDERSTRING(form.nom, 'Nom') && VALIDETEXT(form.description, 'Description') ) {
         bouton.removeAttribute('disabled');
