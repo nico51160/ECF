@@ -45,11 +45,11 @@ const VALIDETEXT = (valeur, name)=> {
         explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir moins de 20 caractères";
         explication.classList.add('rouge');
         return false;
-    }else if(valeur.value.length > 300) {
+    }else if(valeur.value.length > 500) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 300 caractères";
+        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 500 caractères";
         explication.classList.add('rouge');
         return false;
     } else if(!verifString) { 
@@ -119,7 +119,7 @@ const VALIDERPRIX = (valeur)=> {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le prix ne peut exceder 1000000 d'euros'";
+        explication.innerText = "Le prix ne peut exceder un milion d'euros'";
         explication.classList.add('rouge');
         return false;
     } else if(!regexChi.test(valeur.value)) {

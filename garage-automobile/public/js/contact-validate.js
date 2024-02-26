@@ -49,11 +49,11 @@ const VALIDETEXT = (valeur, name)=> {
         explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir moins de 20 caractères";
         explication.classList.add('rouge');
         return false;
-    }else if(valeur.value.length > 300) {
+    }else if(valeur.value.length > 500) {
         controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
         controle.classList.remove('vert');
         controle.classList.add('rouge');
-        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 300 caractères";
+        explication.innerText = "Le " +name.toLowerCase()+ " ne peut avoir plus de 500 caractères";
         explication.classList.add('rouge');
         return false;
     } else if(!verifString) { 
@@ -94,57 +94,6 @@ const VALIDEREMAIL = (valeur)=> {
     }
 }
 
-// Fonction validerPass
-const VALIDERPASS = (valeur)=> {
-    let explication = document.querySelector('#explicationPass');
-    let controle    = document.querySelector('#controlePass');
-    let regexMaj    = /[A-Z]/;
-    let regexMin    = /[a-z]/;
-    let regexChi    = /\d/;
-    let regexSpc    = /[?!:;,.]/;
-    if(valeur.value.length < 7) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins 7 caractères";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexMaj.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins une lettre en majuscule";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexMin.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins une lettre en minuscule";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexChi.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins un chiffre";
-        explication.classList.add('rouge');
-        return false;
-    } else if(!regexSpc.test(valeur.value)) {
-        controle.innerHTML = '<i class="fas fa-exclamation-triangle"></i>';
-        controle.classList.remove('vert');
-        controle.classList.add('rouge');
-        explication.innerText = "Le pass doit contenir au moins un caractère spécial";
-        explication.classList.add('rouge');
-        return false;
-    } else {
-        controle.innerHTML = '<i class="fas fa-check"></i>';
-        controle.classList.remove('rouge');
-        controle.classList.add('vert');
-        explication.innerText = "";
-        return true;
-    }
-}
 // Fonction validerPortable
 const VALIDERPORTABLE = (valeur)=> {
     let explication = document.querySelector('#explicationTelephone');
