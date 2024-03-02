@@ -17,11 +17,11 @@ if (isset($_POST['submit'])) {
                     <form method="POST" class="mr-1">
                         <div class="form-group">
                             <label for="login" class="form-label">Login*</label>
-                            <input type="text" class="form-control" name="login">
+                            <input type="text" placeholder="Veuillez inserer votre login" class="form-control" name="login">
                         </div>
                         <div class="form-group">
                             <label for="password" class="form-label">Mot de passe*</label>
-                            <input type="password" placeholder="Veuillez inserer votre mot de passe à 8 chiffre" class="form-control" name="password">
+                            <input type="password" placeholder="Veuillez inserer votre mot de passe" class="form-control" name="password">
                         </div>
                         <div class="form-group">
                             <div class="form-check">

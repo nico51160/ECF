@@ -14,7 +14,6 @@ class Voiture
         $pdo->bindParam(':kilometrage', $voiture['kilometrage'], PDO::PARAM_INT);
         $pdo->bindParam(':prix', $voiture['prix'], PDO::PARAM_INT);
         if ($pdo->execute()) {
-            error_reporting(E_ERROR | E_PARSE);
             $lastVoitureId = $Cnx->lastInsertId();
             $destinationDirectory = '/garage-automobile/public/images/voitures/';
             foreach ($_FILES['images']['type'] as $key => $type) {
@@ -26,7 +25,7 @@ class Voiture
                 $dossierTempo = $_FILES['images']['tmp_name'][$key];
                 $dossierSite = $destinationDirectory  . $_FILES['images']['name'][$key];
                 if (file_exists($dossierTempo)) {
-                    @move_uploaded_file($dossierTempo, $dossierSite);
+                     move_uploaded_file($dossierTempo, $dossierSite);
                 }
                 $sql1 = 'INSERT INTO voiture_images (voiture_id, lien) VALUES (:voiture_id, :lien)';
                 $pdo1 = Cnx::Connect()->prepare($sql1);

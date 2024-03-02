@@ -28,8 +28,8 @@ class Contact
 
     static public function delete($id)
     {
-
-        $pdo1 = Cnx::Connect()->prepare("DELETE FROM contact where id=:id");
+        $sql = "DELETE FROM contact where id=:id";
+        $pdo1 = Cnx::Connect()->prepare($sql);
         $pdo1->bindParam(':id', $id, PDO::PARAM_INT);
         if ($pdo1->execute()) {
             return 'ok';

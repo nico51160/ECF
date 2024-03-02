@@ -40,5 +40,6 @@ En utilisant l'invite de commande mysql.exe, exécutez ces requêtes (Pas de Php
 3. Accédez à l'application dans votre navigateur en ouvrant l'URL suivante : `http://localhost/garage-automobile`.
 3. N'oubliez pas d'ajouter votre login et votre mot de pass mysql dans le PDO (fichier Cnx)
 4. Une fois la base de donnée installée, vos logins seront : `login: vincent`, `mot de passe: 123` pour vous connecter en tant qu'administrateur.
+5. Pour voir ce site deployé, veuillez cliquer ce lien : https://garage-automobile.store/visiteur-voitures
 
 

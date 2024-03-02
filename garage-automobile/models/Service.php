@@ -3,12 +3,11 @@ class Service
 {
     static public function create($service)
     {
-        error_reporting(E_ERROR | E_PARSE);
         $destinationDirectory = '/garage-automobile/public/images/services/';
         $dossierTempo = $_FILES['image']['tmp_name'];
         $dossierSite = $destinationDirectory . basename($_FILES['image']['name']);
         if (file_exists($dossierTempo)) {
-            @move_uploaded_file($dossierTempo, $dossierSite);
+            move_uploaded_file($dossierTempo, $dossierSite);
         }
         $sql = 'INSERT INTO service (nom, description, image) 
                         VALUES (:nom, :description, :image)';
