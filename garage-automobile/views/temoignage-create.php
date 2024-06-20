@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
                     </h5>
                 </div>
                 <div class="card-body bg-dark" id="box">
-                    <form method="post" onsubmit="return validateForm();">
+                    <form method="post">
                     <input type="hidden" class="form-control" value="<?php isset($_SESSION['user']) ? $_SESSION['user']->id : null ?>" name="id">
                         <div class="form-group">
                             <label class="control-label" for="nom">Nom*</label>

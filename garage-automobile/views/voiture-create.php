@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
                 </div>
                 <div class="card-body bg-dark" id="box">
                     <a href="http://localhost/garage-automobile/gestion-voitures" class="btn btn-light mb-2"><i class="fa fa-home"></i></a>
-                    <form method="post" onsubmit="return validateForm();" enctype="multipart/form-data">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="control-label" for="nom">Nom*</label>
                             <input type="text" class="form-control" name="nom">

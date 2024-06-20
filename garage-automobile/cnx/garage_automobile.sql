@@ -70,21 +70,11 @@ INSERT INTO `voiture` (`id`, `nom`, `caracteristiques`, `moteur`, `annee`, `kilo
 (NULL, 'Toyota', 'La Toyota est une marque automobile mondialement reconnue, réputée pour sa fiabilité, son efficacité énergétique et son engagement envers la durabilité, offrant une gamme variée de véhicules, y compris des modèles hybrides et électriques.', 'Moteur Toyota', 2021, 300, 4300);
 
 CREATE TABLE `voiture_images` (
-  `id` int(11) NOT NULL,
-  `voiture_id` int(11) NOT NULL,
-  `lien` varchar(255) NOT NULL
-) ;
-
-ALTER TABLE `voiture_images`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `voiture_id` (`voiture_id`);
-
-ALTER TABLE `voiture_images`
-  ADD CONSTRAINT `voiture_images_ibfk_1` FOREIGN KEY (`voiture_id`) REFERENCES `voiture` (`id`);
-COMMIT;
-
-ALTER TABLE `voiture_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  `id` INT AUTO_INCREMENT PRIMARY KEY,
+  `voiture_id` INT NOT NULL,
+  `lien` VARCHAR(255) NOT NULL,
+  FOREIGN KEY (`voiture_id`) REFERENCES `voiture` (`id`)
+);
 
  INSERT INTO `voiture_images` (`id`, `voiture_id`, `lien`) VALUES
 (NULL, 1, '/garage-automobile/public/images/voitures/royce1.jpg'),
