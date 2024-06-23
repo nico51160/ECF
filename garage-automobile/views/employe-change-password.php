@@ -16,34 +16,18 @@ if (isset($_POST['submit'])) {
                     <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-light mb-2"><i class="fa fa-home"></i></a>
                     <form method="post">
                         <div class="form-group">
-                            <label for="oldPassword">Ancien mot de passe
-                                <span class="input-group-addon" >
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </span>
-                                <input type="checkbox" id="showOldPassword">
-                            </label>
                             <input type="password" class="form-control" name="oldPassword" id="oldPassword" required>
                             <input type="hidden" name="id" value="<?php echo  $_SESSION['user']->id; ?>">
                         </div>
                         <div class="form-group">
-                            <label for="newPassword">Nouveau mot de passe
-                                <span class="input-group-addon" >
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </span>
-                                <input type="checkbox" id="showNewPassword">
-                            </label>
+                            <label for="newPassword">Nouveau mot de passe</label>
                             <input type="password" class="form-control" name="newPassword" id="newPassword" required>
                             <input type="hidden" name="id" value="<?php echo  $_SESSION['user']->id; ?>">
                             <span id="controlePass"></span>
                             <strong id="explicationPass"></strong>
                         </div>
                         <div class="form-group">
-                            <label for="confirmPassword">Confirmer le nouveau mot de passe
-                                <span class="input-group-addon" >
-                                    <i class="fa fa-eye" aria-hidden="true"></i>
-                                </span>
-                                <input type="checkbox" id="showConfirmPassword">
-                            </label>
+                            <label for="confirmPassword">Confirmer le nouveau mot de passe</label>
                             <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required>
                             <input type="hidden" name="id" value="<?php echo  $_SESSION['user']->id; ?>">
                             <span id="controlePassConfirme"></span>
@@ -57,5 +41,5 @@ if (isset($_POST['submit'])) {
         </div>
     </div>
 </div>
-<script src="/garage-automobile/public/js/password-view.js"></script>
+
 <script src="/garage-automobile/public/js/password-change.js"></script>
