@@ -11,11 +11,11 @@ $messages = $data->readAllMessages();
                             <table class="table table-bordered text-white">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Nom & Prénom</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Telephone</th>
-                                        <th scope="col">Message</th>
-                                        <th scope="col">Actions</th>
+                                        <th>Nom & Prénom</th>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                        <th>Message</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -25,7 +25,7 @@ $messages = $data->readAllMessages();
                                             <td><?php echo $message['email']; ?></td>
                                             <td><?php echo $message['telephone']; ?></td>
                                             <td><?php echo $message['message']; ?></td>
-                                            <td class="d-flex flex-row">
+                                            <td>
                                                 <form class="ml-2" method="post" action="message-delete">
                                                     <input type="hidden" name="id" value="<?php echo $message['id']; ?>">
                                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce message ?');">

@@ -13,12 +13,12 @@ $users = $data->readAllUsers();
                             <table class="table table-bordered text-white">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Nom & Prénom</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Telephone</th>
-                                        <th scope="col">Login</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Actions</th>
+                                        <th>Nom & Prénom</th>
+                                        <th>Email</th>
+                                        <th>Telephone</th>
+                                        <th>Login</th>
+                                        <th>Role</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -29,7 +29,7 @@ $users = $data->readAllUsers();
                                             <td><?php echo $user['telephone']; ?></td>
                                             <td><?php echo $user['login']; ?></td>
                                             <td><?php echo $user['role']; ?></td>
-                                            <td class="d-flex flex-row">
+                                            <td>
                                                 <form class="ml-2" method="post" action="employe-delete">
                                                     <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
                                                     <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette voiture ?');">

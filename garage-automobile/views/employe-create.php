@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
                 <div class="card card-header bg-dark"><h5><label>Ajouter un utilisateur</label></h5></div>
                 <div class="card-body bg-dark" id="box">
                     <a href="http://localhost/garage-automobile/gestion-employes" class="btn btn-light mb-2"><i class="fa fa-home"></i></a>
-                    <form method="post" onsubmit="return validateForm();">
+                    <form method="post">
                         <div class="form-group">
                             <label class="control-label" for="nom">Nom*</label>
                             <input type="text" class="form-control" name="nom">

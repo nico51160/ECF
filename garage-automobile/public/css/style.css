@@ -7,49 +7,112 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
-
-.container,
-.nav-container {
-    font-family: 'Montserrat', sans-serif;
+/*Annuaire*/
+#content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.styled-table {
+    width: 100%;
+    border-collapse: collapse; 
+    border: 1px solid #ffffff; 
+    margin-bottom: 15px;
+}
+.styled-table th, .styled-table td {
+    border: 1px solid #ffffff; 
+    text-align: left; 
+    padding: 8px; 
+}
+.styled-table th {
+    background-color: #343a40;
     color: white;
+    font-weight: bold;
 }
-
-.image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-}
-
-.img-detail {
-    height: 300px;
-    object-fit: cover;
-}
-
-.spn {
+.styled-table tr:nth-child(even) {
+    background-color: #343a40; 
     color: white;
-    transition: color 0.3s;
+    font-weight: lighter;
 }
-
-.spn:hover {
-    color: black;
+@media screen and (max-width: 600px) {
+.center .color img {
+    width: 100%;
 }
-
-.login {
-    margin-top: 70px;
+.color {
+    width: 80%;
 }
-
-.card:hover {
-    box-shadow: 0 4px 8px rgba(228, 27, 27, 0.1);
-    transform: translateY(-5px);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+select option {
+    width: 200px;
 }
-
+}
 /*Alert Regex */
-
 .rouge {
     color: rgb(146,45,45);
 }
 .vert {
     color: #0a0;
 }
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.color {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    font-weight: lighter;
+    background-color: #343a40;
+    border: 1px solid white;
+    width: 50%;
+    padding: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+#colorworkertop{
+    margin-bottom: 0px;
+    border-bottom: none;
+}
+#colorworkerbottom {
+    margin-top: 0px;
+    border-top: none;
+}
+.color select #workers {
+    margin-bottom: 20px;
+    border-radius: 0;
+}
+.container, 
+.nav-container {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+.image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+.img-detail {
+    height: 300px;
+    object-fit: cover;
+}
+.spn {
+    color: white;
+    transition: color 0.3s;
+}
+.spn:hover {
+    color: black;
+}
+.login {
+    margin-top: 70px;
+}
+.card:hover {
+    box-shadow: 0 4px 8px rgba(228, 27, 27, 0.1);
+    transform: translateY(-5px);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
 
